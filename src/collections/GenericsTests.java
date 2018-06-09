@@ -12,6 +12,13 @@ public class GenericsTests {
 		
 		List<String> alist2 = new ArrayList<>(10); // just indicates the INITIAL size of the list.. it is still empty
 		
+		///////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////
+
+		String[] names = {"Alex", "Bob", "Charlie"};
+	//	List<?> listNames = new ArrayList<?>(Arrays.asList(names)); // instantiation with a ? is not possible
+
+		///////////////////////////////////////////////////////////////////
 		
 		System.out.println("The end.");
 		
