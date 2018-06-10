@@ -1,5 +1,7 @@
 package streams;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamDemo {
@@ -15,6 +17,15 @@ public class StreamDemo {
 		
 		System.out.println("word: " + word);
 
+		
+		/////////////////////////////////////////////////////////////////
+		// pre-defined collector example
+		
+		stream = Stream.of("w","o","l","f");
+		List<String> word2 = stream.collect(Collectors.toList());
+		System.out.println("word2: " + word2);
+		
+		
 	}
 
 }
