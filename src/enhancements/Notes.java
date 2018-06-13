@@ -25,6 +25,16 @@ public class Notes {
         //
         Stream<Integer> stream_values = values.stream();
         stream_values.map(x -> "stream value: " + x.toString()).forEach(System.out::println);
+
+	
+        //
+        // another stream example
+        // note that Stream<Double> can't be used because it doesn't have the sum() method
+        // this is why mayToDouble is needed
+        Stream<Integer> stream_values2 = values.stream();
+        stream_values2.mapToDouble(x -> x.doubleValue()).sum();
+	
+	
 	}
 
 }
