@@ -2,6 +2,7 @@ package enhancements;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Notes {
 
@@ -19,6 +20,11 @@ public class Notes {
         System.out.println("values: " + values);
 
 		
+        //
+        // stream example
+        //
+        Stream<Integer> stream_values = values.stream();
+        stream_values.map(x -> "stream value: " + x.toString()).forEach(System.out::println);
 	}
 
 }
