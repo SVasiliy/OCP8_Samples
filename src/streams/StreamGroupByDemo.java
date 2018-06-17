@@ -45,6 +45,9 @@ public class StreamGroupByDemo {
 													Collectors.groupingBy( TestObj::getGroup)
 												);
 		
+		// EXAMPLE 1
+		System.out.println("EXAMPLE 1");
+
 		// outer loop
 		for (Map.Entry<E, List<TestObj>> s : m.entrySet()) {
 			
@@ -54,6 +57,29 @@ public class StreamGroupByDemo {
 			for ( TestObj o : s.getValue())
 				System.out.println(o);
 		}
+
+	
+		// EXAMPLE 2
+		System.out.println("EXAMPLE 2");
+		System.out.println(m);
+		
+
+		// EXAMPLE 3 - complex example with cascade collector
+		System.out.println("EXAMPLE 3");
+		Map<E, List<Integer>> m2 = tList.stream()
+			  	.collect( 
+							Collectors.groupingBy( TestObj::getGroup,
+												   Collectors.mapping( TestObj::getValue, 
+														   			   Collectors.toList()
+														   			 )
+												 )
+						);
+
+		
+		System.out.println(m2);
+		
+		
+		
 	}
 
 }
