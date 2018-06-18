@@ -23,6 +23,13 @@ public class ComparatorStaticDemo {
 		Collections.sort(list, Comparator.comparing(Product::getPrice));
 		
 		System.out.println(list);
+
+		
+		// test lambda implementation
+		Collections.sort(list, (a, b) -> (int)b.getPrice() - (int)a.getPrice());
+		System.out.println(list);
+
+		
 		
 	}
 
