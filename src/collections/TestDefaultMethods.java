@@ -24,6 +24,10 @@ public class TestDefaultMethods {
 	public void process2( String name, Double value) {
 		groupedValues.computeIfAbsent(name, x -> new ArrayList<>()).add(value); 
 	}
+
+	public void simpleCompute( String name, Double value) {
+		groupedValues.compute( name, ( a, b) -> {b.add(value); return b;}); // try to return null. The whole mapping is removed from the list.
+	}
 	
 
 	public static void main(String[] args) {
@@ -40,6 +44,12 @@ public class TestDefaultMethods {
 		
 		System.out.println("same thing again");
 		System.out.println(t.groupedValues);
+		
+		
+		t.simpleCompute("B", 4d);
+		System.out.println("testing compute()");
+		System.out.println(t.groupedValues);
+		
 		
 	}
 
