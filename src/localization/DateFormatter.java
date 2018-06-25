@@ -22,9 +22,13 @@ public class DateFormatter {
         LocalDate l = LocalDate.now();
         DateTimeFormatter df2 = DateTimeFormatter.ofLocalizedDate( FormatStyle.LONG);
         s = df2.format(l);
-
         System.out.println(s);
-        s = df2.format(l);
+
+        
+        //  DateFormat can't be used to format LocalDate, even though it compiles with no issues
+        //  this below will throw IllegalArgumentException
+        s = df.format(l);
+        System.out.println(s);
         
         
 	}
