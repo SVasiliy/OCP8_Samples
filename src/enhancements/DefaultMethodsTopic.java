@@ -10,7 +10,7 @@ package enhancements;
  * forEach was added and nothing was broken in the existing code
  
     public interface Iterable<T> {
-       public void forEach(Consumer<? super T> consumer);
+       default void forEach(Consumer<? super T> action);
     }
 */
 
