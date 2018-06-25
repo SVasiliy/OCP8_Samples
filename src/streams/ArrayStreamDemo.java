@@ -24,6 +24,9 @@ public class ArrayStreamDemo {
         System.out.println("Average using streams : " +
                                    (sum / arr.length));
         
+        ///////////////////////// another way /////////////////////////////
+        sum = (int)Arrays.stream(arr).average().getAsDouble(); 
+        System.out.println("Average using streams : " + sum);
         
         
         
