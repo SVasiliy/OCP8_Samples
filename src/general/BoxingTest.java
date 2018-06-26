@@ -13,7 +13,7 @@ public class BoxingTest {
 
 		//	Double d4 = i;                   // not possible
 		//	Double d5 = new Integer(10);     // not possible
-		
+		double d6 = new Integer(10);         // possible!!!
 	}
 
 }
