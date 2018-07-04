@@ -27,6 +27,11 @@ public class PathComponents {
 		                                        // parent: null
 		                                        // root: /
 		
+		// test toAbsolutePath() method
+		Path p = Paths.get("temp/test.txt");
+		System.out.println(p.toAbsolutePath());  // joins the relative path with the CURRENT WORKING directory 
+		
+		
 	}
 
 }
