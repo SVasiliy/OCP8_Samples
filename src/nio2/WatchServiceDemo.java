@@ -22,6 +22,10 @@ public class WatchServiceDemo {
 						+ ". File affected: " + event.context() + ".");
 			}
 			
+			// when the WatchKey instance is returned by either of the poll or take APIs, 
+			// it will not capture more events if it's reset API is not invoked
+			wk.reset();
+			
 		}
 		
 	}
