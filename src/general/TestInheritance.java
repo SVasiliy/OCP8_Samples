@@ -12,6 +12,12 @@ class A {
 	public A(int x) {
 		this.x = 20;
 	}
+	
+	final class IA {   // can be public, default, abstract, private and final
+		void printIt() {
+			System.out.println("x: " + x);
+		}
+	}
 }
 
 class B extends A {
@@ -34,6 +40,8 @@ public class TestInheritance {
 		
 		B b = new B();
 		b.print();
+		
+		b.new IA().printIt();
 	}
 	
 }
