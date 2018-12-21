@@ -6,19 +6,21 @@ public class UnaryOperatorDemo {
 
 	public static void main(String[] args) {
 
-		String a = "hello";
+		String s = "hello";
 		StringBuilder sb = new StringBuilder("world");
-		UnaryOperator<StringBuilder> uo1 = s -> s.append(a);
-		UnaryOperator<String> uo2 = s -> s.toUpperCase();
+		UnaryOperator<StringBuilder> uo1 = t -> t.append(s);
+		UnaryOperator<String> uo2 = t -> t.toUpperCase();
 		
 		uo1.apply(sb);
+		System.out.println("uo1 result: " + sb);
 		
-		System.out.println("result: " + sb);
+		String locString = sb.toString();
+		uo2.apply(locString);
+		System.out.println(locString); // print lower, because Strings are immutable
+
+		locString = uo2.apply(locString);
+		System.out.println(locString); // print UPPER
 		
-		String ms = sb.toString();
-		uo2.apply(ms);
-		
-		System.out.println(ms); // print lower, because Strings are immutable
 		
 	}
 
