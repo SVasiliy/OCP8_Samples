@@ -2,6 +2,7 @@ package lambdas;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
 
 class Book {
@@ -38,6 +39,10 @@ interface Reader2 {
 	};
 }
 
+interface Reader3 extends Consumer<Book> {
+	
+}
+
 public class FITest {
 
 	public static void main(String[] args) {
@@ -59,6 +64,13 @@ public class FITest {
 
 		// static methods are also possible
 		books.forEach(x -> Reader2.statread(x));
+		
+		
+		Reader3 r3 = b -> {
+			System.out.println("Reading book again "+b.getTitle());
+		};
+		// another interesting implementation
+		books.forEach(r3);
 		
 	} 
 
