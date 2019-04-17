@@ -2,7 +2,10 @@ package general;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
 import static java.time.temporal.ChronoUnit.MILLIS;;
 
 public class ListTest {
@@ -13,7 +16,7 @@ public class ListTest {
 		
 		List<String> list = new ArrayList<>(1000000);
 		for (int i = 0; i < 10000000; i++) {
-			list.add(String.valueOf(i));
+			list.add(String.valueOf(ThreadLocalRandom.current().nextInt(0, 10000000)));
 		}
 		System.out.println("MILLIS to populate: " + MILLIS.between(localTime, LocalTime.now()));
 		System.out.println("List size: " + list.size());
@@ -33,6 +36,10 @@ public class ListTest {
 		System.out.println("value at 10: " + list.get(10));
 		System.out.println("value at 11: " + list.get(11));
 		System.out.println("value at 12: " + list.get(12));
+
+		localTime = LocalTime.now();
+		Collections.sort(list, Collections.reverseOrder());
+		System.out.println("MILLIS to sort the list: " + MILLIS.between(localTime, LocalTime.now()));
 
 	}
 
