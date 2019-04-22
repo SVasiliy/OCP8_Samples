@@ -14,7 +14,7 @@ public class IOSimple {
 		// basic byte read
         System.out.println("basic byte read");
         
-		InputStream is = new FileInputStream("misc\\test_doc.txt");
+		InputStream is = new FileInputStream("misc/test_doc.txt");
 		int i = is.read();               // notice "int", not "byte". This is to be able to receive -1                 
 		while (i != -1) {
 			System.out.println(i);
@@ -26,7 +26,7 @@ public class IOSimple {
 		// basic byte read in the array
         System.out.println("basic byte read in the array");
 
-        InputStream is2 = new FileInputStream("misc\\test_doc.txt");
+        InputStream is2 = new FileInputStream("misc/test_doc.txt");
 		byte[] array = new byte[10];
 		int k = is2.read(array);
 		
@@ -40,7 +40,7 @@ public class IOSimple {
 		// buffered input stream
         System.out.println("buffered input stream");
         
-		InputStream is3 = new FileInputStream("misc\\test_doc.txt");
+		InputStream is3 = new FileInputStream("misc/test_doc.txt");
 		BufferedInputStream bis = new BufferedInputStream(is3, 64);    // tuning the stream size
 		byte[] ch = new byte[32];
 		int k2 = bis.read(ch);
@@ -55,7 +55,7 @@ public class IOSimple {
 		// wrap as InputStreamReader (+ use encoding to be able to convert non-ASCII symbols)
         System.out.println("InputStreamReader");
 		
-        InputStreamReader is4 = new InputStreamReader (new FileInputStream("misc\\test_doc.txt"), "UTF-8");
+        InputStreamReader is4 = new InputStreamReader (new FileInputStream("misc/test_doc.txt"), "UTF-8");
 		
 		char[] ch2 = new char[64];
 		int k3 = is4.read(ch2);
