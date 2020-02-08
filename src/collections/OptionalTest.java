@@ -16,18 +16,17 @@ public class OptionalTest {
 	}
 
 	public static void main(String[] args) {
-		
+
+		// Optional.empty
 		Optional<Double> price = Optional.ofNullable(getPrice("10"));
+
 		Double x = price.orElse(getPrice("2"));
-		
-		Double y = price.orElseGet(() -> new Double(20));
+		Double y = price.orElseGet(() -> 20.0);
 
 		System.out.println("x: " + x);
 		System.out.println("y: " + y);
 		
 		Double z = price.orElseThrow(() -> new RuntimeException("Bad code!"));
-		
 	}
 
 }
-;
