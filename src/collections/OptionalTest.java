@@ -20,7 +20,13 @@ public class OptionalTest {
 		// Optional.empty
 		Optional<Double> price = Optional.ofNullable(getPrice("10"));
 
+		// would return java.util.NoSuchElementException
+		//Double a = price.get();
+
 		Double x = price.orElse(getPrice("2"));
+
+		// public T orElseGet(Supplier<? extends T> supplier)
+		// https://stackoverflow.com/a/33170142/7426774
 		Double y = price.orElseGet(() -> 20.0);
 
 		System.out.println("x: " + x);
