@@ -20,7 +20,7 @@ class MyHouse implements Bungalow, House {}
 public class TestDefaultMethodsInheritance {
 
 	public static void main(String[] args) {
-		House ci = new MyHouse(); //1     
-		System.out.println(ci.getAddress()); // 101 Smart Str !!!   
+		House ci = new MyHouse(); //1 ï¿½ï¿½ï¿½ï¿½
+		System.out.println(ci.getAddress()); // 101 Smart Str !!! ï¿½ï¿½
 	} 
 }
