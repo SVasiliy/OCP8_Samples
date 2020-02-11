@@ -31,8 +31,6 @@ public class InheritanceTest {
 
             Z() {
                 super('D');
-            //    System.out.println(Y.Z.this.character);
-            //    System.out.println(super.character);
             }
 
             public char getA(){
