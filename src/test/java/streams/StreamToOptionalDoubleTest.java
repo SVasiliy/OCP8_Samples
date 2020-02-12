@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.OptionalDouble;
 import java.util.stream.Stream;
 
-public class StreamToOptionalDouble {
+public class StreamToOptionalDoubleTest {
 
     @Test
     public void run(){
