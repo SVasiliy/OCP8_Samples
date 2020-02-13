@@ -3,9 +3,9 @@ package beans;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductList {
+public class BeanFactory {
 
-	public static List<Product> getProductList() {
+	public static List<Product> getProducts() {
 		
 		List<Product> list = new ArrayList<>();
 

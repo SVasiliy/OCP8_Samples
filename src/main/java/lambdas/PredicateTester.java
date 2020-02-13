@@ -3,9 +3,9 @@ package lambdas;
 import java.util.List;
 import java.util.function.Predicate;
 
+import beans.BeanFactory;
 import beans.Category;
 import beans.Product;
-import beans.ProductList;
 
 
 class ProductPredicate implements Predicate<Product> {
@@ -26,7 +26,7 @@ public class PredicateTester {
 	public static void main(String[] args) {
 
 		
-		List<Product> lst = ProductList.getProductList();
+		List<Product> lst = BeanFactory.getProducts();
 		
 		System.out.println(lst);
 		
