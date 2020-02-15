@@ -4,9 +4,8 @@ import beans.BeanFactory;
 import beans.Category;
 import beans.Product;
 import org.junit.Test;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
@@ -36,10 +35,10 @@ public class StreamCollectorsTest {
         List<Product> list = BeanFactory.getProducts();
 
         Map<Category, List<Product>> collectionA = list.stream()
-                .sorted(Comparator.comparing(Product::getCategory))
-                .collect(Collectors.groupingBy(x -> x.getCategory()));
+                .collect(Collectors.groupingBy(Product::getCategory));
 
-        assertEquals("{C=[C1, C2, C3], B=[B1, B2], A=[A1]}", collectionA.toString());
+        TreeMap<Category, List<Product>> sortedMapA = new TreeMap<>(collectionA);
+        assertEquals("{A=[A1], B=[B1, B2], C=[C1, C2, C3]}", sortedMapA.toString());
 
         Map<Category, List<Double>> collectionB = list.stream()
                 .sorted(Comparator.comparing(Product::getCategory))
@@ -47,9 +46,19 @@ public class StreamCollectorsTest {
                                                     , Collectors.mapping(Product::getPrice, Collectors.toList())
                                                 ));
 
-        assertEquals("{C=[70.0, 60.0, 50.0], B=[90.0, 80.0], A=[100.0]}", collectionB.toString());
+        TreeMap<Category, List<Double>> sortedMapB = new TreeMap<>(collectionB);
+        assertEquals("{A=[100.0], B=[90.0, 80.0], C=[70.0, 60.0, 50.0]}", sortedMapB.toString());
     }
 
+    @Test
+    public void runGroupByWithCount() {
 
+        List<String> names = Arrays.asList("greg", "dave", "don", "ed", "fred");
+        Map<Integer, Long> data = names.stream()
+                .sorted(Comparator.comparing(String::length))
+                .collect(Collectors.groupingBy(String::length, Collectors.counting()));
+
+        assertEquals("{2=1, 3=1, 4=3}", data.toString());
+    }
 
 }
